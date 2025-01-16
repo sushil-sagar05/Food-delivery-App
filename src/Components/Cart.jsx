@@ -15,7 +15,7 @@ function Cart() {
   const ClearCart = () => {dispatch(clearCart())}
   return (
     <>
-    <div className={`fixed p-5 right-0 top-0 w-[20vw] h-full bg-white ${activeCart ? "translate-x-0" : "translate-x-full"} transition-all duration-500 z-50`}>
+    <div className={`fixed p-5 right-0 top-0 w-[20vw] h-1/2 bg-white ${activeCart ? "translate-x-0" : "translate-x-full"} transition-all duration-500 z-50`}>
         <div className='flex justify-between items-center my-3'>
             <span className='text-xl font-bold text-gray-800'>My Order</span>
             <IoMdClose 
@@ -39,7 +39,7 @@ function Cart() {
     </div>
     <FaShoppingCart 
     onClick={()=> setactiveCart(!activeCart)}
-    className={`rounded-full bg-white shadow-md  cursor-pointer hover:bg-yellow-400  text-5xl p-3 fixed top-[33px] right-[3.5rem] ${totalqty > 0 && "animate-bounce delay-500 transition-all" }`}/>
+    className={`rounded-full bg-white shadow-md  cursor-pointer hover:bg-yellow-400  text-5xl p-3 fixed top-[250px] right-[3.5rem] ${totalqty > 0 && "animate-bounce delay-500 transition-all" }`}/>
     </>
   )
 }

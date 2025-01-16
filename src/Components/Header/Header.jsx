@@ -1,66 +1,37 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import {setSearch} from '../../Redux/Slices/SearchSlice'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { setSearch } from '../../Redux/Slices/SearchSlice';
+import { Link } from 'react-router-dom';
 import { FaBowlFood } from "react-icons/fa6";
+import Hamburger from '../Hamburger';
+import{ useGSAP} from '@gsap/react'
+import gsap from 'gsap';
+import { FaRegUser } from "react-icons/fa6";
 function Header() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className='mt-0  outline-1 bg-white '>
-        <nav className='  gap-48   h-14 items-center flex justify-evenly'>
-  <div className="left flex ">
-  <div className="right w-1/2  h-full flex">
-            
-            <Link to='/'><h2 className='font-bold text-3xl text-center flex gap-3 text-black pt-3'> Delivery <FaBowlFood /></h2></Link>
+    <header className='bg-white shadow-md'>
+      <nav className='flex items-center justify-between p-4'>
+        <div className="flex items-center">
+          <Link to='/' className='flex items-center text-3xl font-bold text-black'>
+            Delivery <FaBowlFood className='ml-2' />
+          </Link>
         </div>
-  </div>
-  <div className="right">
-  <div
-                        className="hidden justify-between font-bold items-center w-full lg:flex lg:w-auto lg:order-1"
-                        id="mobile-menu-2"
-                    >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                           
-                            <li>
-                              <input
-                              type='search'
-                              name='search'
-                              id=""
-                              placeholder='search-here'
-                              autoComplete='off'
-                              onChange={(e) => dispatch(setSearch(e.target.value))}
-                              className='border-red-500 text-sm h-10 p-2 rounded-lg border-2 outline-red-500 '
-                              />
-                            </li>
-                            <li>
-                                <NavLink
-                                to="/Help"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Help
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                to="/signup"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                   Sign UP
-                                </NavLink>
-                            </li>
-                            
-                            
-                        </ul>
-                    </div>
-  </div>
-  </nav>
-  </header>
-  )
+        <div className="left w-1/2 h-full  flex items-center justify-end ">
+      <div  className='text-4xl mr-3 flex gap-3 rounded-lg text-white bg-black'>
+        {/* <GiHamburgerMenu /> */}
+      <Hamburger  />
+      </div>
+        </div>
+      </nav>
+     
+        
+    
+    </header>
+  );
 }
 
-export default Header
+export default Header;

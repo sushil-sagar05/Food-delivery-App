@@ -9,3 +9,22 @@
 body {
   background: rgb(244 244 244 );
 }
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu-btn:checked + .mobile-menu {
+  display: block;
+}
