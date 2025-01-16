@@ -6,7 +6,8 @@ import Success from './Pages/Success.jsx'
 import Layout from './Layout.jsx'
 import Error from './Pages/Error.jsx'
 import SignUp from './Pages/SignUp.jsx'
-
+import Login from './Pages/Login.jsx'
+import Help from './Pages/Help.jsx'
 function App() {
  
 
@@ -16,9 +17,12 @@ function App() {
   <Routes>
         <Route path='/' element={<Layout />} >
         <Route path='' element={<Home />}/>
-     
+        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/help' element={<Help/>}/>
        </Route>
         <Route path='/*' element={<Error/>} />
+
         </Routes>
         </BrowserRouter>
       )
