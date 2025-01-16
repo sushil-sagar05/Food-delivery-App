@@ -1,50 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { RxCross1 } from "react-icons/rx";
-import gsap from 'gsap';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { RxCross1 } from 'react-icons/rx';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 function Hamburger() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const hamburgerRef = useRef(null);
-  useEffect(() => {
-    if (hamburgerOpen) {
-      gsap.to(hamburgerRef.current, {
-        duration: 0.5,
-        opacity: 1,
-        x:0,
-        // y:0,
-        ease: 'power3.out'
-      });
-    } else {
-      gsap.to(hamburgerRef.current, {
-        duration: 0.5,
-        opacity: 0,
-        x: 200,
-        ease: 'power3.in'
-      });
-    }
-  }, [hamburgerOpen]);
 
   const toggleButton = () => {
     setHamburgerOpen(!hamburgerOpen);
-    
+    if (hamburgerRef.current) {
+      hamburgerRef.current.style.opacity = hamburgerOpen ? '0' : '1';
+    }
   };
- 
+
   return (
     <div>
-      <button   onClick={toggleButton}>
-        {hamburgerOpen? <RxCross1/>:<GiHamburgerMenu />}
-        </button>
-      <div ref={hamburgerRef} 
-      className='bg-white mt-8 rounded-lg h-24 text-xl text-center w-24 cursor-pointer text-black'
-      style={{ opacity: 0, position: 'absolute', top: '65px', right:'0' }}>
-        {/* Menu content */}
-        <ul className='border rounded-lg '>
-         <Link to='/login'><li className=''>Login</li></Link> 
+      <button onClick={toggleButton}>
+        {hamburgerOpen ? <RxCross1 /> : <GiHamburgerMenu />}
+      </button>
+      <div
+        ref={hamburgerRef}
+        className={`bg-white mt-8 rounded-lg h-24 text-xl text-center w-24 cursor-pointer text-black transition-opacity duration-300 ${hamburgerOpen ? 'opacity-100' : 'opacity-0'}`}
+        style={{ position: 'absolute', top: '65px', right: '0' }}
+      >
+        <ul className='border rounded-lg'>
+          <Link to='/login'><li className=''>Login</li></Link>
           <hr />
-          
-         <Link to='/signup'><li>signup</li></Link> 
+          <Link to='/signup'><li>Signup</li></Link>
           <hr />
           <Link to='/help'><li>Help</li></Link>
           <hr />

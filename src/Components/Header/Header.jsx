@@ -5,9 +5,8 @@ import { setSearch } from '../../Redux/Slices/SearchSlice';
 import { Link } from 'react-router-dom';
 import { FaBowlFood } from "react-icons/fa6";
 import Hamburger from '../Hamburger';
-import{ useGSAP} from '@gsap/react'
-import gsap from 'gsap';
 import { FaRegUser } from "react-icons/fa6";
+
 function Header() {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
@@ -20,16 +19,36 @@ function Header() {
             Delivery <FaBowlFood className='ml-2' />
           </Link>
         </div>
-        <div className="left w-1/2 h-full  flex items-center justify-end ">
-      <div  className='text-4xl mr-3 flex gap-3 rounded-lg text-white bg-black'>
-        {/* <GiHamburgerMenu /> */}
-      <Hamburger  />
-      </div>
+        <div className="hidden lg:flex items-center space-x-4">
+          <input
+            type='search'
+            name='search'
+            placeholder='Search here'
+            autoComplete='off'
+            onChange={(e) => dispatch(setSearch(e.target.value))}
+            className='border-2 border-red-500 text-sm h-10 p-2 rounded-lg outline-none'
+          />
+          <NavLink
+            to="/help"
+            className={({ isActive }) =>
+              `py-2 px-4 ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700`
+            }
+          >
+            Help
+          </NavLink>
+          <NavLink
+            to="/signup"
+            className={({ isActive }) =>
+              `py-2 px-4 ${isActive ? "text-orange-700" : "text-gray-700"} hover:text-orange-700`
+            }
+          >
+            Sign Up
+          </NavLink>
+        </div>
+        <div className="lg:hidden">
+          <Hamburger />
         </div>
       </nav>
-     
-        
-    
     </header>
   );
 }

@@ -15,7 +15,7 @@ function Footer() {
             <hr />
            <div className='flex gap-5'>
            <h1>Made with ♥ by Sagar</h1>
-            <div className='flex w-8 mt-1 mr-1 justify-between  '>
+            <div className='flex w-10 mt-1 mr-1  justify-evenly  '>
               <FaGithub onClick={(e) => {
                 socials1(e)
               }} />
