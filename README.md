@@ -1,8 +1,7 @@
-# React + Vite
+Food Delivery App
+This is a React application for a food delivery service. It uses React Router DOM for routing and Redux for state management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
+Browse a menu of food items
+Add items to a cart
+Checkout and place an order (Note: payment gateway is not implemented in this project)
