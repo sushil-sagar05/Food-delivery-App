@@ -43,7 +43,7 @@ const submitHandler = async (e)=>{
         <form onSubmit={(e)=>{
             submitHandler(e)
         }}>
-            <h3 className='text-xl ml-2 font-semibold '>What's Your name</h3>
+            <h3 className='text-xl ml-2 font-semibold mt-3 '>What's Your name</h3>
            <div className='flex gap-2 mb-5'>
             <input type={firstname}
             onChange={(e)=>{
@@ -82,7 +82,7 @@ const submitHandler = async (e)=>{
             <p className='text-sm'>I accept the terms of use & privacy policy</p>
             </span>
             
-            <button className='w-72 h-8 rounded-lg mt-3 ml-4 hover:bg-green-500 bg-green-500  text-white '>Register </button>
+            <button className='w-72 h-8 rounded-lg mt-5 ml-4 hover:bg-green-500 bg-green-500  text-white '>Register </button>
             <h2 className='mt-2 text-center'>Aleary have a Accout?<Link to='/login'><span className='ml-1 text-blue-500'>Login</span></Link></h2>
         </form>
         </div>
